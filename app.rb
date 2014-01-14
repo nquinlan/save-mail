@@ -22,9 +22,9 @@ AWS::S3::Base.establish_connection!(
 post '/parse' do
   headers = Mail.new(params[:headers])
 
-  id = headers['X-Saver-ID'] || SecureRandom.uuid
+  id = headers['X-Save-Mail-ID'] || SecureRandom.uuid
 
-  template_name = headers['X-Saver-Template'] || "default"
+  template_name = headers['X-Save-Mail-Template'] || "default"
 
   template_name += ".html.erb"
 
